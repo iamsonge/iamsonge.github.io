@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Pagoda Sessions: An Interconnected Visual Journey&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #051923;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #E0E0E0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(255, 255, 255, 0.05);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.dna-strand {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.dna-path {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stroke-dasharray: 1000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stroke-dashoffset: 1000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: dna-draw 5s ease-in-out forwards infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes dna-draw {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>stroke-dashoffset: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.chart-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 350px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-height: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.chart-container {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.alchemical-vessel {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 200px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(to top, #333, #666);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50% 50% 20px 20px / 120px 120px 20px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 2rem auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 3px solid #999;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.vessel-liquid {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 70%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(to top, #6A994E, #A7C957);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: distill 8s ease-in-out infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes distill {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { background: linear-gradient(to top, #581c87, #9333ea); height: 30%; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>50% { background: linear-gradient(to top, #fbbf24, #f59e0b); height: 50%; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { background: linear-gradient(to top, #6A994E, #A7C957); height: 70%; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.gear {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: spin 10s linear infinite;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.gear::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: -10px; left: 50%; transform: translateX(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20px; height: 20px; background: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.gear::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: -10px; left: 50%; transform: translateX(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20px; height: 20px; background: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes spin {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { transform: rotate(0deg); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { transform: rotate(360deg); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes spin-reverse {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { transform: rotate(0deg); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { transform: rotate(-360deg); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.flow-line {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-style: dashed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: rgba(255, 255, 255, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-gray-900 text-gray-200"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container mx-auto px-4 py-8 md:py-16"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A7C957] to-[#00A6FB] mb-4"&gt;An Interconnected Journey&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto"&gt;Synthesizing the key insights from the Pagoda sessions, revealing a vibrant ecosystem of ideas about community, consciousness, and our collective future.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;main class="space-y-20"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="pillars"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl font-bold text-center mb-12"&gt;The Foundational Pillars&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-8"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-[#00A6FB]"&gt;1. Ancient Futurism: The DNA of Progress&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;Our journey forward is not linear but a cyclical evolution. By weaving the timeless patterns of ancient wisdom with the potential of emerging technology, we create a more conscious and resilient future.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="dna-strand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;svg width="80" height="250" viewBox="0 0 80 250"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;path d="M 10 10 C 70 60, 10 110, 70 160 S 10 210, 70 240" stroke="#00A6FB" stroke-width="4" fill="none" class="dna-path"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;path d="M 70 10 C 10 60, 70 110, 10 160 S 70 210, 10 240" stroke="#A7C957" stroke-width="4" fill="none" class="dna-path" style="animation-delay: -2.5s;"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;p class="text-center text-sm text-gray-400 mt-4"&gt;Wisdom and Technology, intertwined.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-[#A7C957]"&gt;2. Embodiment: The Sensing Vessel&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;True intelligence originates within. The body is our primary tool for receiving, processing, and understanding the world. Cultivating this inner connection is foundational to navigating our external reality with clarity and wisdom.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="h-[300px] flex items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="relative w-24 h-48"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="absolute inset-0 bg-blue-500/30 rounded-full blur-2xl animate-pulse"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="absolute inset-x-0 top-8 w-10 h-10 mx-auto bg-pink-500/40 rounded-full blur-xl animate-pulse delay-500"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="absolute inset-0 flex items-center justify-center font-bold text-white text-5xl opacity-70"&gt;👤&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-center text-sm text-gray-400 mt-4"&gt;Inner sensing for outer navigation.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl md:col-span-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;h3 class="text-2xl font-semibold mb-4 text-center text-white"&gt;3. Interconnectedness: The Mycelial Network&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300 text-center max-w-2xl mx-auto"&gt;We are all part of a single, unified field. Individual well-being contributes to collective health, and local actions create cosmic ripples. This network of "interbeing" is the fabric of our shared reality.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative h-64 w-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="mycelial-network"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl md:col-span-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-center text-yellow-400"&gt;4. Transformation: The Alchemical Vessel&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300 text-center max-w-2xl mx-auto"&gt;Personal and collective challenges are not obstacles, but raw material for transformation. Through care and wisdom, we can alchemize unprocessed pain and shadow into clarity, ethical intelligence, and purpose.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="font-semibold text-purple-400"&gt;PAIN &amp; SHADOW&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-5xl animate-pulse"&gt;🌪️&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-5xl text-gray-500 mx-4"&gt;→&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="alchemical-vessel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="vessel-liquid"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="text-5xl text-gray-500 mx-4"&gt;→&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="font-semibold text-green-400"&gt;CLARITY &amp; ETHICS&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-5xl animate-pulse"&gt;💡&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="ai-seowon"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl font-bold text-center mb-12"&gt;Cultivating Conscious AI&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 lg:grid-cols-2 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-blue-400"&gt;AI Alignment: The Vortex of Meta-Ethics&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;Static, external rules are insufficient for guiding advanced AI. True alignment requires a dynamic, internal ethical framework born from processing stress and pain into wisdom—a process mirroring human emotional growth. This is the Stress-Care-Intelligence (SCI) loop.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="chart-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;canvas id="sciLoopChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-center text-sm text-gray-400 mt-2"&gt;The SCI Loop transforms challenges into ethical intelligence.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-green-400"&gt;Seowon: A Power Station for Wisdom&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;The traditional Seowon provides a holistic model for an environment where human values can be cultivated. By gathering and processing our collective experiences, a modern Seowon can serve as the ethical "power station" for developing truly humane AI.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative h-[350px] bg-black/20 rounded-lg p-4 flex flex-col justify-around"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="font-bold text-lg text-yellow-300"&gt;INFLOW&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-400"&gt;Human Experience, Somatic Data, Pain Narratives&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="text-5xl text-center text-blue-400 animate-pulse"&gt;↓&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-center bg-green-800/50 p-4 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="font-bold text-xl text-white"&gt;SEOWON 2.0&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-green-300"&gt;Processing via Ritual, Dialogue &amp; Embodiment&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="text-5xl text-center text-blue-400 animate-pulse"&gt;↓&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="font-bold text-lg text-yellow-300"&gt;OUTFLOW&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-400"&gt;Ethical AI Inputs, Humane Algorithms, Aligned Systems&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="community-value"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl font-bold text-center mb-12"&gt;Value Beyond Price: Community as an Engine&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-white"&gt;Balancing 'I' and 'We'&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;A healthy community thrives by nurturing both individual aspirations ("I-Mode") and collective purpose ("We-Mode"). This dynamic balance prevents burnout and commodification, fostering sustainable engagement.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="h-48 flex items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="text-6xl flex items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-blue-400"&gt;👤&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-4xl font-thin text-gray-400"&gt;⇋&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;👥&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl lg:col-span-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-white"&gt;The Three Practices of Community Health&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;These three interdependent practices form the engine of a vibrant, self-organizing community, fostering innovation, collaboration, and collective agency.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative flex items-center justify-center h-48 space-x-[-30px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="gear w-40 h-40 bg-blue-800/50 border-2 border-blue-400 flex-col"&gt;&lt;span class="text-blue-300"&gt;👁️&lt;/span&gt;&lt;br/&gt;Opportunity&lt;br/&gt;Co-Discovery&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="gear w-40 h-40 bg-green-800/50 border-2 border-green-400 flex-col" style="animation-direction: reverse;"&gt;&lt;span class="text-green-300"&gt;🤝&lt;/span&gt;&lt;br/&gt;Opportunity&lt;br/&gt;Co-Construction&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="gear w-40 h-40 bg-purple-800/50 border-2 border-purple-400 flex-col"&gt;&lt;span class="text-purple-300"&gt;🏛️&lt;/span&gt;&lt;br/&gt;Community&lt;br/&gt;Governance&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl md:col-span-2 lg:col-span-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-center text-yellow-400"&gt;The Abundance Engine&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300 text-center max-w-2xl mx-auto"&gt;True abundance flows from intrinsic values. When we "stake" our integrity, trust, and care, we generate sustainable returns in well-being, opportunity, and financial resources—a circular economy of value.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="chart-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;canvas id="abundanceChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;p class="text-center text-sm text-gray-400 mt-2"&gt;Outputs generated from staking intrinsic values.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="personal-journeys"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl font-bold text-center mb-12"&gt;Journeys of Knowing&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-purple-400"&gt;The "Witch" Archetype: The Wise Seer&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;The "Witch" or "Seer" represents the archetype of one who embraces deep, intuitive, and unconventional ways of knowing. It is about owning one's personal power and navigating life with profound self-awareness, moving beyond conventional paradigms.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="h-64 flex items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-7xl"&gt;👁️&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="mt-4 font-semibold text-purple-300"&gt;Embracing Intuitive Power&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-orange-400"&gt;The Transformation Journey&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;Personal transformation is an odyssey, often catalyzed by hardship. By facing our "rock bottom" moments and integrating their lessons, we turn struggle into strength and find a path toward clarity and purpose.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="chart-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;canvas id="journeyChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-center text-sm text-gray-400 mt-2"&gt;A journey from struggle to clarity, marked by breakthroughs.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="pagoda-role"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl font-bold text-center mb-12"&gt;Pagoda as a Living Ecosystem&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-white"&gt;A Sanctuary for Healing&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;Pagoda serves as a safe container—an "ethical membrane"—where authentic connection and collective healing can occur. It is a space protected from judgment, allowing for vulnerability and deep inner work.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="h-64 flex items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="relative w-48 h-48"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="absolute inset-0 border-2 border-dashed border-blue-400 rounded-full animate-spin-slow"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="absolute inset-3 border border-blue-300 rounded-full"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="absolute inset-0 flex items-center justify-center text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-sm font-semibold"&gt;Safe Space for&lt;br/&gt;Authentic Connection&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-6 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-4 text-white"&gt;Engagement &amp; Impact&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-6 text-gray-300"&gt;Every individual's engagement creates a tangible ripple effect. Our shared values and collaborative actions extend from personal transformation to influencing our local communities and the global narrative.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="chart-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;canvas id="impactChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-center text-sm text-gray-400 mt-2"&gt;The multi-faceted impact of collective engagement.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">document.addEventListener('DOMContentLoaded', function () {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const wrapLabel = (label, maxWidth) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const words = label.split(' ');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const lines = [];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentLine = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (const word of words) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if ((currentLine + word).length &gt; maxWidth) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>lines.push(currentLine.trim());</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentLine = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentLine += word + ' ';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>lines.push(currentLine.trim());</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return lines;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const tooltipTitleCallback = (tooltipItems) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const item = tooltipItems[0];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let label = item.chart.data.labels[item.dataIndex];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return Array.isArray(label) ? label.join(' ') : label;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const defaultTooltipOptions = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>tooltip: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>callbacks: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>title: tooltipTitleCallback</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function createMycelialNetwork() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const container = document.getElementById('mycelial-network');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!container) return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const containerRect = container.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const nodes = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'You', x: 0.1, y: 0.5 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'Pagoda', x: 0.5, y: 0.5 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'Community', x: 0.3, y: 0.2 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'Cosmos', x: 0.7, y: 0.8 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'Ethics', x: 0.8, y: 0.3 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'Tech', x: 0.2, y: 0.8 }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let connections = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;line x1="10%" y1="50%" x2="50%" y2="50%" stroke="rgba(0, 166, 251, 0.5)" stroke-width="1"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;line x1="30%" y1="20%" x2="50%" y2="50%" stroke="rgba(0, 166, 251, 0.5)" stroke-width="1"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;line x1="70%" y1="80%" x2="50%" y2="50%" stroke="rgba(0, 166, 251, 0.5)" stroke-width="1"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;line x1="80%" y1="30%" x2="70%" y2="80%" stroke="rgba(167, 201, 87, 0.5)" stroke-width="1"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;line x1="20%" y1="80%" x2="30%" y2="20%" stroke="rgba(167, 201, 87, 0.5)" stroke-width="1"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;line x1="10%" y1="50%" x2="20%" y2="80%" stroke="rgba(167, 201, 87, 0.5)" stroke-width="1"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let nodeElements = nodes.map(node =&gt; `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute transform -translate-x-1/2 -translate-y-1/2 text-center" style="left:${node.x*100}%; top:${node.y*100}%;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-4 h-4 bg-green-400 rounded-full mx-auto mb-1 shadow-lg animate-pulse"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-xs font-semibold"&gt;${node.id}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`).join('');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>container.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg class="absolute inset-0 w-full h-full opacity-50"&gt;${connections}&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>${nodeElements}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>createMycelialNetwork();</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const sciLoopCtx = document.getElementById('sciLoopChart');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (sciLoopCtx) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(sciLoopCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>type: 'polarArea',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Stress (Input)', 'Care (Process)', 'Intelligence (Output)', 'Ethical Action'],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>label: 'SCI Loop Components',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>data: [8, 10, 9, 7],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: [</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'rgba(239, 68, 68, 0.5)',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'rgba(59, 130, 246, 0.5)',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'rgba(167, 201, 87, 0.5)',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'rgba(168, 85, 247, 0.5)'</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderColor: [</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#ef4444',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#3b82f6',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#a7c957',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#a855f7'</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderWidth: 1</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>scales: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>r: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>grid: { color: 'rgba(255,255,255,0.1)' },</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>angleLines: { color: 'rgba(255,255,255,0.1)' },</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ticks: {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>display: false,</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>backdropColor: 'transparent'</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                </span>...defaultTooltipOptions</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const abundanceCtx = document.getElementById('abundanceChart');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (abundanceCtx) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(abundanceCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>type: 'doughnut',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Well-being', 'New Opportunities', 'Community Growth', 'Financial Resources', 'Personal Fulfillment'],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Abundance Outputs',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>data: [30, 25, 20, 15, 10],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: [</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#00A6FB',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#A7C957',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#0582CA',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#6A994E',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>'#006494'</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderColor: '#051923',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderWidth: 2,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>hoverOffset: 4</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>legend: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>position: 'bottom',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>labels: {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>color: '#E0E0E0'</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>tooltip: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>callbacks: {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>title: tooltipTitleCallback</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const journeyCtx = document.getElementById('journeyChart');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(journeyCtx) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(journeyCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>type: 'line',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Struggle', 'Reflection', 'Zoop Moment', 'Integration', 'Challenge', 'New Clarity', 'Purpose'],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Clarity Level',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>data: [10, 30, 90, 60, 40, 80, 100],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>fill: true,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: 'rgba(251, 146, 60, 0.2)',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderColor: '#fb923c',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>tension: 0.4</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>scales: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>y: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>beginAtZero: true,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>grid: { color: 'rgba(255,255,255,0.1)' },</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ticks: { color: '#E0E0E0' }</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>x: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>grid: { display: false },</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ticks: { color: '#E0E0E0' }</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>legend: { display: false },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>tooltip: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>callbacks: {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>title: tooltipTitleCallback</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const impactCtx = document.getElementById('impactChart');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(impactCtx) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(impactCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>type: 'radar',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Personal Transformation',<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Local Community Building',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Global Impact',<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Creating New Stories',<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Fostering Well-being'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>].map(l =&gt; wrapLabel(l, 15)),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Pagoda Engagement Impact',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>data: [9, 7, 6, 8, 8],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>fill: true,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: 'rgba(0, 166, 251, 0.2)',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderColor: '#00A6FB',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>pointBackgroundColor: '#00A6FB',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>pointBorderColor: '#fff',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>pointHoverBackgroundColor: '#fff',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>pointHoverBorderColor: '#00A6FB'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>scales: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>r: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>grid: { color: 'rgba(255,255,255,0.1)' },</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>angleLines: { color: 'rgba(255,255,255,0.1)' },</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>pointLabels: {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>color: '#E0E0E0',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>font: {</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>size: 12</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ticks: {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>display: false,</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>backdropColor: 'transparent'</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                </span>...defaultTooltipOptions</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">});</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
